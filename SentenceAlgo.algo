@@ -1,0 +1,40 @@
+ALGORITHM Sentence_Algo
+VAR
+    _length,countWord,countVowels,i : INTEGER;
+    character : CHAR;
+    sentence : STRING := '';
+BEGIN 
+    countWord := 0;
+    countVowels := 0;
+
+    REPEAT
+        Read( character )
+        sentence = sentence + character;
+    UNTIL (  character = '.' )
+
+    _length :=  sentence.length;
+    
+    FOR i FROM 0 TO _length-1 DO
+        IF (sentence[i] = ' ') OR (sentence[i] = '.') THEN
+            countWord++;
+        END_IF
+
+        SWITCH ( sentence[i] ) DO
+            case 'a' : countVowels++; BREAK;
+            case 'e' : countVowels++; BREAK;
+            case 'i' : countVowels++; BREAK;
+            case 'o' : countVowels++; BREAK;
+            case 'u' : countVowels++; BREAK;
+            case 'y' : countVowels++; BREAK;
+            case 'A' : countVowels++; BREAK;
+            case 'E' : countVowels++; BREAK;
+            case 'I' : countVowels++; BREAK;
+            case 'O' : countVowels++; BREAK;
+            case 'U' : countVowels++; BREAK;
+            case 'Y' : countVowels++; BREAK;
+        END_SWITCH
+    END_FOR
+    Write('The length of the sentence: '+_length)
+    Write('The number of words in the sentence: '+countWord)
+    Write('The number of vowels in the sentence: '+countVowels)
+END
